@@ -14,7 +14,7 @@ services:
       - ./nginx/snippets:/etc/nginx/snippets
       - ./nginx/ssl:/etc/nginx/ssl
     networks:
-      tonbox:
+      stackton:
         aliases:
           - americachip.test
 
@@ -23,7 +23,7 @@ services:
     image: mysql:8.0
     container_name: mysql8.0
     volumes:
-      - ./database:/var/lib/
+      - ./database:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: admin
@@ -31,7 +31,7 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - tonbox
+      - stackton
 
   php7.4:
     extends:
@@ -72,7 +72,7 @@ services:
       - "8025:8025"
       - "1025:1025"
     networks:
-      - tonbox
+      - stackton
 
   redis:
     container_name: redis
@@ -81,8 +81,8 @@ services:
     ports:
       - "6379:6379"
     networks:
-      - tonbox
+      - stackton
 
 networks:
-  tonbox:
+  stackton:
     external: true

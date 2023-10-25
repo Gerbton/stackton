@@ -21,7 +21,7 @@ services:
       - ./www:/var/www
       - ./php/conf.d:/usr/local/etc/php/conf.d
     networks:
-      - tonbox
+      - stackton
     depends_on:
       - database
       - mailhog
