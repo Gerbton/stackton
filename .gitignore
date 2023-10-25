@@ -1,0 +1,18 @@
+# IDE
+.idea
+
+# OS
+.DS_Store
+
+# Ignore projects on www folder
+www/*
+
+# Ignore docker folder
+database/
+nginx/conf.d/*
+nginx/ssl/*
+
+# Keep www folder
+!www/.gitkeep
+!nginx/conf.d/.gitkeep
+!nginx/ssl/.gitkeep

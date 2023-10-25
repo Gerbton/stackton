@@ -1,0 +1,28 @@
+version: '3'
+services:
+  php:
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UID: ${UID:-1000}
+        NODE_VERSION: 18
+        PHP_VERSION: ${PHP_VERSION:-8.2}
+    environment:
+      MAILHOG_HOST: mailhog
+      MAILHOG_PORT: 1025
+      MAILHOG_SEND: 1
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./www:/var/www
+      - ./php/conf.d:/usr/local/etc/php/conf.d
+    networks:
+      - tonbox
+    depends_on:
+      - database
+      - mailhog
+      - redis
