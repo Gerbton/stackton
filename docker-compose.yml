@@ -8,7 +8,11 @@ services:
       - "443:443"
     volumes:
       - ./www:/var/www
-      - ./nginx:/etc/nginx
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/sites-available:/etc/nginx/sites-available
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./nginx/snippets:/etc/nginx/snippets
+      - ./nginx/ssl:/etc/nginx/ssl
     networks:
       tonbox:
         aliases:

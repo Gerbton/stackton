@@ -9,10 +9,12 @@ www/*
 
 # Ignore docker folder
 database/
-nginx/conf.d/*
+nginx/sites-available/*
+nginx/sites-enabled/*
 nginx/ssl/*
 
 # Keep www folder
 !www/.gitkeep
-!nginx/conf.d/.gitkeep
+!nginx/sites-available/.gitkeep
+!nginx/sites-enabled/.gitkeep
 !nginx/ssl/.gitkeep
