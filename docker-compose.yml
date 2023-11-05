@@ -20,6 +20,7 @@ services:
     depends_on:
       - php7.4
       - php8.0
+      - php8.1
       - php8.2
 
   database:
@@ -57,6 +58,16 @@ services:
         PHP_VERSION: "8.0"
     image: gerbton/php8.0-xdebug-node
     container_name: php8.0
+
+  php8.1:
+    extends:
+      file: php-service.yml
+      service: php
+    build:
+      args:
+        PHP_VERSION: "8.1"
+    image: gerbton/php8.1-xdebug-node
+    container_name: php8.1
 
   php8.2:
     extends:
