@@ -74,6 +74,19 @@ services:
     image: gerbton/php8.2-xdebug-node
     container_name: php8.2
 
+  node18:
+    extends:
+      file: node-service.yml
+      service: node
+    build:
+      args:
+        NODE_VERSION: "18.16"
+        PORT: 4693
+    environment:
+      COMMAND: "yarn run serve"
+    image: gerbton/node18
+    container_name: node18
+
   mailhog:
     container_name: mailhog
     platform: linux/x86_64

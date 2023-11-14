@@ -1,0 +1,14 @@
+ARG NODE_VERSION=18
+
+FROM node:${NODE_VERSION}
+
+ARG PORT=3000
+ENV COMMAND "npm start"
+
+EXPOSE ${PORT}
+
+WORKDIR /app
+
+RUN npm install -g nodemon
+
+CMD ${COMMAND}

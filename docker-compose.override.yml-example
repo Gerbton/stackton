@@ -1,0 +1,5 @@
+version: "3"
+services:
+  node18:
+    volumes:
+      - ./custom-volume:/var/www

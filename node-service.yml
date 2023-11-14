@@ -1,0 +1,29 @@
+version: '3'
+services:
+  node:
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+      args:
+        NODE_VERSION: "18"
+    environment:
+      DATABASE_HOST: database
+      DATABASE_PORT: 3306
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+      MAILHOG_HOST: mailhog
+      MAILHOG_PORT: 1025
+      MAILHOG_SEND: 1
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./www:/var/www
+    networks:
+      - stackton
+    depends_on:
+      - database
+      - mailhog
+      - redis
