@@ -17,11 +17,6 @@ services:
       stackton:
         aliases:
           - americachip.test
-    depends_on:
-      - php7.4
-      - php8.0
-      - php8.1
-      - php8.2
 
   database:
     platform: linux/x86_64

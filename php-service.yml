@@ -29,7 +29,3 @@ services:
       - ./php/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
     networks:
       - stackton
-    depends_on:
-      - database
-      - mailhog
-      - redis

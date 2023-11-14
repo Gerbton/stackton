@@ -1,0 +1,10 @@
+services:
+  php8.2: false
+  php8.1: true
+  php8.0: false
+  php7.4: false
+  node18: false
+  database: true
+  mailhog: false
+  redis: false
+  nginx: true
