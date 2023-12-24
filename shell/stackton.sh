@@ -25,10 +25,9 @@ restart_services() {
 }
 
 execute_command() {
-    command=$1
     enabled_services=$(yq e '.services | to_entries | .[] | select(.value == true) | .key' "$SERVICES_FILE")
 
-    docker-compose $command $enabled_services
+    docker-compose $1 $enabled_services
 }
 
 case "$1" in

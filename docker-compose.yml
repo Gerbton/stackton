@@ -19,7 +19,7 @@ services:
           - americachip.test
 
   database:
-    platform: linux/x86_64
+    platform: linux/amd64
     image: mysql:8.0
     container_name: mysql8.0
     volumes:
@@ -89,7 +89,7 @@ services:
 
   mailhog:
     container_name: mailhog
-    platform: linux/x86_64
+    platform: linux/amd64
     image: mailhog/mailhog:latest
     ports:
       - "8025:8025"
@@ -99,7 +99,6 @@ services:
 
   redis:
     container_name: redis
-    platform: linux/x86_64
     image: redis:alpine
     ports:
       - "6379:6379"
